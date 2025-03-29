@@ -2,9 +2,10 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("node:path");
 const psList = require("ps-list").default;
 const { exec } = require("child_process");
+const fs = require("fs");
 
-let processes = []
-let blocked = {exes: [], windows: []}
+let processes = [];
+let blocked = { exes: [], windows: [] };
 
 if (require("electron-squirrel-startup")) {
     app.quit();
@@ -18,7 +19,7 @@ const createWindow = () => {
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
         },
     });
 
@@ -26,7 +27,8 @@ const createWindow = () => {
 };
 
 ipcMain.on("message-from-renderer", (event, data) => {
-    blocked = data
+    blocked = data;
+    createJSON()
 });
 
 app.whenReady().then(async () => {
@@ -39,16 +41,14 @@ app.whenReady().then(async () => {
     });
 
     try {
-        processes = await psList();  
+        processes = await psList();
     } catch (error) {
         console.error("Failed to get process list:", error);
     }
 
-    
-
     setInterval(async () => {
-        blockProcesses(blocked.exes)
-    }, 5000)
+        blockProcesses(blocked.exes);
+    }, 5000);
 });
 
 app.on("window-all-closed", () => {
@@ -75,6 +75,6 @@ const blockProcesses = async (blocked) => {
     });
 };
 
-module.exports = {
-    urls: blocked.windows
+const createJSON = () => {
+    fs.writeFileSync("../extension/urls.json", JSON.stringify({data: blocked.windows}, null, 2), "utf8");
 }

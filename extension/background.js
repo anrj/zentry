@@ -1,13 +1,6 @@
-const filteredURLs = [
-  "https://www.youtube.com/",
-  "facebook.com",
-  "twitter.com",
-  "instagram.com",
-  "reddit.com",
-  "twitch.tv",
-  "x.com",
-  "https://www.messenger.com/t/6959179037446661/",
-];
+import urls from './urls.json'
+
+const filteredURLs = urls || []
 
 function parseDomain(domain) {
   if (!domain) return null;
