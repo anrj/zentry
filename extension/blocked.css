@@ -1,59 +1,26 @@
 body {
-  background-color: black;
-  width: 150px;
-  height: 150px;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0e0e0e;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.icon {
-  margin-left: 25%;
+#zentry-icon {
+  stroke: floralwhite;
+  margin-bottom: 12rem;
 }
 
-.switch {
-  margin-left: 30%; 
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 35px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
+.message {
+  color: floralwhite;
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3rem;
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
 }
 
-.slider::before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-}
 
-input:checked + .slider {
-  background-color: #023020;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px); 
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round::before {
-  border-radius: 50%;
-}

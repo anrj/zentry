@@ -1,12 +1,31 @@
 {
     "name": "Zentry",
-    "description": "Stop procrastinating",
+    "description": "Blocks sites configured by the Zentry desktop app.",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-      "default_popup": "zentry.html",
-      "default_icon": "zentrylogo.png"
-      
+      "default_popup": "extension.html",
+      "default_icon": "assets/zentry-icon2.png"
+    },
+    "permissions": [
+      "declarativeNetRequest",
+      "nativeMessaging",
+      "storage",
+      "webNavigation",
+      "tabs"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "128": "assets/zentry-icon2.png"
+    },
+    "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "blocked.css"],
+      "matches": ["<all_urls>"]
     }
+  ]
+  
   }
   
