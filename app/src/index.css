@@ -1,0 +1,155 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn-wrapper div {
+  margin: 0 10px;
+}
+
+.file-input {
+  display: none;
+  cursor: pointer;
+}
+
+.tmp {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-file-input {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  height: 40px;
+
+  width: 200px !important;
+}
+
+.custom-file-input:hover {
+  background-color: #45a049;
+}
+
+.window-name-selector button {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+
+  width: 200px;
+}
+
+.window-name-selector button:hover {
+  background-color: #45a049;
+}
+
+.list {
+  width: 420px;
+  margin: 20px 10px;
+  height: 60vh;
+  padding: 10px;
+
+  overflow-y: scroll;
+
+  background-color: rgb(211, 211, 211);
+  border-radius: 5px;
+  border: 1px gray solid;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list p {
+  margin: 0;
+}
+
+#fixed-input {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default */
+  width: 700px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#input-field {
+  width: 75%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#input-field:focus {
+  border-color: #4CAF50;
+}
+
+
+#save-btn {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0 7px;
+}
+
+#save-btn:hover {
+  background-color: #45a049;
+}
+
+#close-btn {
+  padding: 12px 20px;
+  background-color: #ccc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+#close-btn:hover {
+  background-color: #a6a6a6;
+}

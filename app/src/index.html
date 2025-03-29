@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+  <script src="./render.js"></script>
+
+  <title>Zentry</title>
+</head>
+
+<body>
+  <div class="btn-wrapper">
+    <div class="tmp">
+      <label class="custom-file-input" for="fileInput"><i class="file outline icon"></i> Choose .exe file</label>
+      <input type="file" id="fileInput" class="file-input" />
+    </div>
+
+    <div class="window-name-selector">
+      <button class="window-btn"><i class="window maximize outline icon"></i> Add window name</button>
+    </div>
+  </div>
+
+  <div class="btn-wrapper">
+    <div class="window-name-selector">
+      <button><i class="globe icon"></i> Add website url</button>
+    </div>
+
+    <div class="window-name-selector">
+      <button onclick="alert('This is not added in demo')"><i class="trash alternate outline icon"></i> Remove
+        item</button>
+    </div>
+  </div>
+
+  <div class="list"></div>
+
+  <div id="fixed-input">
+    <input type="text" id="input-field" placeholder="Enter title">
+    <button id="save-btn">Add</button>
+    <button id="close-btn">Close</button>
+  </div>
+</body>
+
+</html>
