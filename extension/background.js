@@ -1,38 +1,64 @@
-const blockedDomains = [
-  "youtube.com",
+const filteredURLs = [
+  "https://www.youtube.com/",
   "facebook.com",
   "twitter.com",
   "instagram.com",
   "reddit.com",
   "twitch.tv",
   "x.com",
+  "https://www.messenger.com/t/6959179037446661/",
 ];
 
-console.log("Background service worker started. Blocking:", blockedDomains);
+function parseDomain(domain) {
+  if (!domain) return null;
+
+  let clean = domain.trim().toLowerCase();
+
+
+  try {
+      if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+         clean = 'https://' + clean;
+      }
+      const urlObject = new URL(clean);
+      console.log('urlObject:', urlObject);
+      return urlObject.hostname;
+  } catch (e) {
+      const parts = clean.replace(/^https?:\/\//, '').split('/');
+      const potentialHostname = parts[0];
+      if (potentialHostname && potentialHostname.includes('.')) {
+          return potentialHostname;
+      }
+      console.warn(`Could not parse domain entry: "${domain}". Skipping.`);
+      return null;
+  }
+}
+
+const blockedDomains = filteredURLs
+                           .map(parseDomain)
+                           .filter(domain => domain !== null);
+
+console.log("Service worker starting/restarting...");
+console.log("Cleaned block list for matching:", blockedDomains);
 
 async function checkAndBlockOpenTabs() {
   console.log("Checking currently open tabs...");
   const blockPageUrl = chrome.runtime.getURL('blocked/blocked.html');
 
   try {
-    // Query all tabs in all windows
-    const tabs = await chrome.tabs.query({}); // Get all tabs
+    const tabs = await chrome.tabs.query({});
 
     for (const tab of tabs) {
-      // Ensure the tab has a URL and it's an http/https URL
       if (tab.url && (tab.url.startsWith('http:') || tab.url.startsWith('https:'))) {
         try {
           const url = new URL(tab.url);
           const currentHostname = url.hostname.toLowerCase();
 
           const isBlocked = blockedDomains.some(blockedDomain => {
-            const cleanBlockedDomain = blockedDomain.replace(/^www\./, '');
-            return currentHostname === cleanBlockedDomain || currentHostname.endsWith('.' + cleanBlockedDomain);
+            return currentHostname === blockedDomain || currentHostname.endsWith('.' + blockedDomain);
           });
 
           if (isBlocked) {
             console.log(`Found open blocked tab: ${currentHostname} (Tab ID: ${tab.id}). Redirecting.`);
-            // Redirect the already open tab
             await chrome.tabs.update(tab.id, { url: blockPageUrl });
           }
         } catch (e) {
@@ -42,6 +68,7 @@ async function checkAndBlockOpenTabs() {
       } else {
         // Optional: Log tabs being skipped
         // console.log(`Skipping tab without http/https URL: ${tab.url} (Tab ID: ${tab.id})`);
+        // MILV 😎 Man I Love Vibecoding
       }
     }
     console.log("Finished checking open tabs.");
@@ -51,47 +78,35 @@ async function checkAndBlockOpenTabs() {
   }
 }
 
-// Listener for navigation events
 chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
-  // Only act on top-level navigation events
   if (details.frameId !== 0) {
     return;
   }
 
-  // Skip if the blocklist is empty (though it's hardcoded here)
   if (blockedDomains.length === 0) {
       return;
   }
 
   const url = new URL(details.url);
-  const currentHostname = url.hostname.toLowerCase(); // e.g., "www.youtube.com"
+  const currentHostname = url.hostname.toLowerCase();
+  console.log(currentHostname);
 
-  // Check if the current hostname matches or is a subdomain of any blocked domain
   const isBlocked = blockedDomains.some(blockedDomain => {
-      // Normalize blocked domain (remove potential www.)
-      const cleanBlockedDomain = blockedDomain.replace(/^www\./, '');
-
-      // Match exact domain or subdomains
-      return currentHostname === cleanBlockedDomain || currentHostname.endsWith('.' + cleanBlockedDomain);
+      return currentHostname === blockedDomain || currentHostname.endsWith('.' + blockedDomain);
   });
 
   if (isBlocked) {
     console.log(`Blocking navigation to ${currentHostname}`);
-    const blockPageUrl = chrome.runtime.getURL('blocked/blocked.html'); // Get the extension's local URL
+    const blockPageUrl = chrome.runtime.getURL('blocked/blocked.html');
 
-    // Redirect the tab
     try {
-        // Using 'await' here ensures we wait for the update attempt.
-        // Although in MV3, the service worker might terminate shortly after an async event handler finishes.
         await chrome.tabs.update(details.tabId, { url: blockPageUrl });
         console.log(`Redirected tab ${details.tabId} to ${blockPageUrl}`);
     } catch (error) {
         console.error(`Failed to redirect tab ${details.tabId}: ${error}`);
-        // This can happen if the tab is closed quickly, etc.
     }
   }
-}, { url: [{ urlMatches: 'https://*/*' }, { urlMatches: 'http://*/*' }] }); // Filter for http/https URLs
+}, { url: [{ urlMatches: 'https://*/*' }, { urlMatches: 'http://*/*' }] });
 
-// --- Run the check for open tabs when the service worker starts ---
-// This covers install, update, browser start, and enabling the extension.
+
 checkAndBlockOpenTabs();
