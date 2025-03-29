@@ -74,3 +74,7 @@ const blockProcesses = async (blocked) => {
         }
     });
 };
+
+module.exports = {
+    urls: blocked.windows
+}
