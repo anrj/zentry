@@ -1,0 +1,29 @@
+body {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0e0e0e;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#zentry-icon {
+  stroke: floralwhite;
+  margin-bottom: 12rem;
+}
+
+
+
+.message {
+  color: floralwhite;
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3rem;
+  position: absolute;
+}
+
+

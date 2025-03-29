@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/zentry-icon2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+  <link href="blocked.css" rel="stylesheet">
+  <title>Blocked by zentry</title>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" id="zentry-icon" class="icon icon-tabler icon-tabler-eye-closed" width="96" height="96" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M21 9c-2.4 2.667 -5.4 4 -9 4c-3.6 0 -6.6 -1.333 -9 -4" />
+    <path d="M3 15l2.5 -3.8" />
+    <path d="M21 14.976l-2.492 -3.776" />
+    <path d="M9 17l.5 -4" />
+    <path d="M15 17l-.5 -4" />
+  </svg>
+  <div class="message"></div>
+
+  <script>
+    const quotes = [
+      "Focus on progress, not perfection.",
+      "Was this distraction really worth delaying your goal?",
+      "Do it now; sometimes 'later' becomes 'never'.",
+      "Your future self will thank you for this focus.",
+      "Less scrolling, more achieving.",
+      "Just start – momentum will follow.",
+      "Remember why you blocked this site.",
+      "Small steps now lead to big results later.",
+      "Get back to what truly matters.",
+      "Turn \"I'll do it later\" into \"I'm doing it now\"."
+    ];
+
+    const messageDiv = document.querySelector('.message');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
+    messageDiv.innerText = randomQuote;
+  </script>
+</body>
+</html>
