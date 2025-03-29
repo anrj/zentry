@@ -1,0 +1,12 @@
+{
+    "name": "Zentry",
+    "description": "Stop procrastinating",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "zentry.html",
+      "default_icon": "zentrylogo.png"
+      
+    }
+  }
+  
