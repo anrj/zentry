@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron')
 
-let blockedExes = []
-let blockedWindows = []
+let blockedExes = JSON.parse(localStorage.getItem('exes')) || []
+let blockedWindows = JSON.parse(localStorage.getItem('windows')) || []
 
 document.addEventListener('DOMContentLoaded', () => {
     const fileSelect = document.getElementById('fileInput');
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderItems()
         sendData()
+        setLocally()
     });
 
     const fixedInput = document.getElementById('fixed-input');
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       inputField.value = ''
       renderItems()
       sendData()
+      setLocally()
     });
 
     renderItems()
@@ -63,4 +65,9 @@ const pTag = (text) => {
 
 const sendData = () => {
     ipcRenderer.send("message-from-renderer", { exes: blockedExes, windows: blockedWindows });
+}
+
+const setLocally = () => {
+    localStorage.setItem('exe', JSON.stringify(blockedExes))
+    localStorage.setItem('windows', JSON.stringify(blockedWindows))
 }

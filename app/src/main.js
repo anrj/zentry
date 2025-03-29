@@ -39,10 +39,7 @@ app.whenReady().then(async () => {
     });
 
     try {
-        processes = await psList();
-        processes.forEach(e => {
-            console.log(e.name)
-        })        
+        processes = await psList();  
     } catch (error) {
         console.error("Failed to get process list:", error);
     }
@@ -62,7 +59,6 @@ app.on("window-all-closed", () => {
 
 const blockProcesses = async (blocked) => {
     const processes = await psList();
-    console.log(blocked)
 
     processes.forEach((process) => {
         if (blocked.includes(process.name)) {
