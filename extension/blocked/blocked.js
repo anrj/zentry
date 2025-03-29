@@ -14,7 +14,6 @@
     "Don't trade long-term goals for short-term comfort.",
     "Create more, consume less.",
     "The best time to start was yesterday. The next best time is now.",
-    "Discipline is choosing between what you want now and what you want most.",
     "Protect your focus like it's your most valuable asset.",
     "What's the *one thing* you should be doing right now?",
     "Escape the scroll hole, return to your purpose.",

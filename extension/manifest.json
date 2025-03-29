@@ -5,10 +5,9 @@
     "manifest_version": 3,
     "action": {
       "default_popup": "extension.html",
-      "default_icon": "assets/zentry-icon2.png"
+      "default_icon": "assets/eyewhite.png"
     },
     "permissions": [
-      "declarativeNetRequest",
       "nativeMessaging",
       "storage",
       "webNavigation",
@@ -18,11 +17,11 @@
       "service_worker": "background.js"
     },
     "icons": {
-      "128": "assets/zentry-icon2.png"
+      "128": "assets/eyewhite.png"
     },
     "web_accessible_resources": [
     {
-      "resources": ["blocked.html", "blocked.css"],
+      "resources": ["blocked/blocked.html", "blocked/blocked.css"],
       "matches": ["<all_urls>"]
     }
   ]
