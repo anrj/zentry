@@ -85,6 +85,8 @@ You have to install the web extension to be able to block web pages and see the 
 >[!IMPORTANT]  
 > The extension is operated through the desktop app, make sure to refresh it when adding new content filters.
 
+### Showcase
 
+![Demo Video](https://raw.githubusercontent.com/anrj/zentry/main/app/src/Assets/images/github/demo.gif)
 
 That should be it! *Have a productive study session!* ⭐
