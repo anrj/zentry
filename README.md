@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/anrj/zentry/main/extension/assets/zentry-logo.svg" alt="Logo" width="600"/>
+    <img src="https://raw.githubusercontent.com/anrj/zentry/main/extension/assets/zentry-logo.svg" alt="Logo" width="500"/>
 </p>
 
 ---
