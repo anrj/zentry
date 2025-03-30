@@ -67,7 +67,7 @@ npm start
 ```
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/anrj/zentry/main/app/src/Assets/images/screenshot.png" alt="Logo" width="720"/>
+    <img src="https://raw.githubusercontent.com/anrj/zentry/main/app/src/Assets/images/github/screenshot.png" alt="Logo" width="720"/>
 </p>
 
 
@@ -84,5 +84,7 @@ You have to install the web extension to be able to block web pages and see the 
 
 >[!IMPORTANT]  
 > The extension is operated through the desktop app, make sure to refresh it when adding new content filters.
+
+
 
 That should be it! *Have a productive study session!* ⭐
