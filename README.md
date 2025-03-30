@@ -1,17 +1,13 @@
-<h1 align="center">
-Zentry
-</h1>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/anrj/zentry/main/extension/assets/zentry-logo.svg" alt="Logo" width="600"/>
+</p>
+
+---
 
 <p align="center">
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/></a>
     <a href="https://www.electronjs.org/"><img src="https://img.shields.io/badge/electron.js-47848F.svg?style=for-the-badge&logo=electron&logoColor=white"/></a>
   <a href="https://chromewebstore.google.com/"><img src="https://img.shields.io/badge/chrome%20web%20store-%23000000.svg?style=for-the-badge&logo=chromewebstore&logoColor=white"/></a>
-  <a href="https://chromewebstore.google.com/"><img src="https://img.shields.io/badge/chrome%20web%20store-%23000000.svg?style=for-the-badge&logo=chromewebstore&logoColor=white"/></a>
-  
-</p>
-
-<p align="center">
-    <img src="https://raw.githubusercontent.com/anrj/zentry/main/extension/assets/zentry-logo.svg" alt="Logo" width="200"/>
 </p>
 
 <p align="center">
@@ -89,4 +85,4 @@ You have to install the web extension to be able to block web pages and see the 
 >[!IMPORTANT]  
 > The extension is operated through the desktop app, make sure to refresh it when adding new content filters.
 
-That should be it! Have a productive study session! ⭐
+That should be it! *Have a productive study session!* ⭐
