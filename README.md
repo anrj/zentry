@@ -87,6 +87,6 @@ You have to install the web extension to be able to block web pages and see the 
 
 ### Showcase
 
-![Demo Video](https://raw.githubusercontent.com/anrj/zentry/main/app/src/Assets/images/github/demo.gif)
+![Demo Video](https://raw.githubusercontent.com/anrj/zentry/main/app/src/Assets/images/github/showcase.gif)
 
 That should be it! *Have a productive study session!* ⭐
