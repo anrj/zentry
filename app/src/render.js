@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderItems()
+
+    const removeBtn = document.querySelector('.remove-btn')
+
+    removeBtn.addEventListener('click', () => {
+        localStorage.clear()
+        ipcRenderer.send("sending-urls", []);
+    })
 });
 
 

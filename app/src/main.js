@@ -17,10 +17,12 @@ const createWindow = () => {
         height: 520,
         resizable: false,
         autoHideMenuBar: true,
+        backgroundColor: '#0e0e0e',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
         },
+        icon: path.join(__dirname, 'Assets/images/white-logo.png'),
     });
 
     mainWindow.loadFile(path.join(__dirname, "index.html"));
@@ -28,6 +30,11 @@ const createWindow = () => {
 
 ipcMain.on("message-from-renderer", (event, data) => {
     blocked = data;
+    createJSON()
+});
+
+ipcMain.on("sending-urls", (event, data) => {
+    blocked.windows = data;
     createJSON()
 });
 
@@ -48,7 +55,7 @@ app.whenReady().then(async () => {
 
     setInterval(async () => {
         blockProcesses(blocked.exes);
-    }, 5000);
+    }, 1500);
 });
 
 app.on("window-all-closed", () => {

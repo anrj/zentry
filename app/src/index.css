@@ -1,6 +1,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
+  
   min-height: 100vh;
   width: 100%;
 
@@ -8,6 +8,14 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.background {
+  z-index: -2;
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0e0e0e;
 }
 
 .btn-wrapper {
@@ -36,8 +44,8 @@ body {
 
 .custom-file-input {
   padding: 12px 20px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #023020;
+  color: floralwhite;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
@@ -46,16 +54,18 @@ body {
   height: 40px;
 
   width: 200px !important;
+
+  font-weight: 600;
 }
 
 .custom-file-input:hover {
-  background-color: #45a049;
+  background-color: #023020;
 }
 
 .window-name-selector button {
   padding: 12px 20px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #023020;
+  color: floralwhite;
   border-radius: 5px;
   height: 40px;
   cursor: pointer;
@@ -64,21 +74,23 @@ body {
   border: none;
 
   width: 200px;
+
+  font-weight: 600;
 }
 
 .window-name-selector button:hover {
-  background-color: #45a049;
+  background-color: #023020;
 }
 
 .list {
   width: 420px;
   margin: 20px 10px;
-  height: 60vh;
+  height: 30vh;
   padding: 10px;
 
   overflow-y: scroll;
 
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(111, 111, 111);
   border-radius: 5px;
   border: 1px gray solid;
 
@@ -101,7 +113,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: none; /* Hidden by default */
+  display: none;
   width: 700px;
   display: none;
   align-items: center;
@@ -119,35 +131,39 @@ body {
 }
 
 #input-field:focus {
-  border-color: #4CAF50;
+  border-color: #023020;
 }
 
 
 #save-btn {
   padding: 12px 20px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #023020;
+  color: floralwhite;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0 7px;
+
+  font-weight: 600;
 }
 
 #save-btn:hover {
-  background-color: #45a049;
+  background-color: #023020;
 }
 
 #close-btn {
   padding: 12px 20px;
   background-color: #ccc;
-  color: white;
+  color: floralwhite;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   cursor: pointer;
   border: none;
+
+  font-weight: 600;
 }
 
 #close-btn:hover {

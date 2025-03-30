@@ -1,6 +1,46 @@
-import urls from './urls.json'
+async function loadURLs() {
+  try {
+      const jsonFileUrl = chrome.runtime.getURL('urls.json');
+      console.log(`Fetching blocklist from: ${jsonFileUrl}`);
 
-const filteredURLs = urls || []
+      const response = await fetch(jsonFileUrl);
+
+      if (!response.ok) {
+          throw new Error(`Failed to fetch urls.json: ${response.status} ${response.statusText}`);
+      }
+      const urlData = await response.json();
+
+      if (urlData && Array.isArray(urlData.data)) {
+          console.log("Successfully loaded URLs from JSON:", urlData.data);
+          return urlData.data;
+      } else {
+          console.warn("urls.json is missing the 'data' array property or is malformed.");
+          return [];
+      }
+
+  } catch (error) {
+      console.error("Error loading or parsing urls.json:", error);
+      return [];
+  }
+}
+
+let filteredURLs = [];
+
+loadURLs()
+    .then(loadedUrls => {
+        console.log("Successfully loaded URLs:", loadedUrls);
+
+        blockedDomains = loadedUrls
+                           .map(parseDomain)
+                           .filter(domain => domain !== null);
+
+        console.log("Cleaned block list initialized:", blockedDomains);
+
+        checkAndBlockOpenTabs();
+    })
+    .catch(error => {
+        console.error("Failed to initialize block list:", error);
+    });
 
 function parseDomain(domain) {
   if (!domain) return null;
@@ -26,7 +66,7 @@ function parseDomain(domain) {
   }
 }
 
-const blockedDomains = filteredURLs
+let blockedDomains = filteredURLs
                            .map(parseDomain)
                            .filter(domain => domain !== null);
 
