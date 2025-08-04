@@ -7,7 +7,6 @@
 <p align="center">
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/></a>
     <a href="https://www.electronjs.org/"><img src="https://img.shields.io/badge/electron.js-47848F.svg?style=for-the-badge&logo=electron&logoColor=white"/></a>
-  <a href="https://chromewebstore.google.com/"><img src="https://img.shields.io/badge/chrome%20web%20store-%23000000.svg?style=for-the-badge&logo=chromewebstore&logoColor=white"/></a>
 </p>
 
 <p align="center">
